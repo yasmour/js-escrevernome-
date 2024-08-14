@@ -1,0 +1,29 @@
+let x, y;
+let velocidadeX, velocidadeY;
+
+function setup() {
+  createCanvas(600, 400); // Cria uma tela de 600x400 pixels
+  x = width / 2; // Posição inicial do círculo no centro da tela
+  y = height / 2;
+  velocidadeX = random(-5, 5); // Velocidade aleatória do círculo
+  velocidadeY = random(-5, 5);
+}
+
+function draw() {
+  background(220); // Cor de fundo cinza claro
+
+  // Atualiza a posição do círculo
+  x += velocidadeX;
+  y += velocidadeY;
+
+  // Verifica colisões com as bordas da tela
+  if (x > width || x < 0) {
+    velocidadeX *= -1; // Inverte a direção
+  }
+  if (y > height || y < 0) {
+    velocidadeY *= -1; // Inverte a direção
+  }
+
+  // Desenha o círculo
+  ellipse(x, y, 50, 50); // Círculo com 50 pixels de diâmetro
+}
